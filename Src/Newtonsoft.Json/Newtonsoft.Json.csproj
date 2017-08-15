@@ -12,7 +12,7 @@
     <AssemblyVersion>9.0.0.153</AssemblyVersion>
     <FileVersion>9.0.1.19813</FileVersion>
     <VersionPrefix>9.0.1.19813</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionSuffix>alpha-01</VersionSuffix>
     <Authors>James Newton-King</Authors>
     <Company>Newtonsoft</Company>
     <Product>Json.NET</Product>
