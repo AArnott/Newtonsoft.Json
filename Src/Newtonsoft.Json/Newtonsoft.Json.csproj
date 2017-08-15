@@ -43,6 +43,7 @@
     <SignAssembly>true</SignAssembly>
     <PublicSign>true</PublicSign>
     <DefineConstants>$(DefineConstants);SIGNED</DefineConstants>
+    <MicroBuild_DoNotStrongNameSign>true</MicroBuild_DoNotStrongNameSign>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

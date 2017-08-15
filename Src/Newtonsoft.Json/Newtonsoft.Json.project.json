@@ -1,4 +1,7 @@
 ﻿{
+  "dependencies": {
+    "MicroBuild": "2.0.42"
+  },
   "frameworks": {
     "net45": {}
   },
