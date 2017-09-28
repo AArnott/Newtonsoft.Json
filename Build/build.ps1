@@ -60,7 +60,7 @@ task Clean {
   }
 
   Write-Host "Creating working directory $workingDir"
-  New-Item -Path $workingDir -ItemType Directory
+  $null = New-Item -Path $workingDir -ItemType Directory
 
 }
 
