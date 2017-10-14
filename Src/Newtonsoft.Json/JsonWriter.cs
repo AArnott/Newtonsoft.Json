@@ -142,7 +142,7 @@ namespace Newtonsoft.Json
         {
             get
             {
-                int depth = (_stack != null) ? _stack.Count : 0;
+                int depth = _stack?.Count ?? 0;
                 if (Peek() != JsonContainerType.None)
                 {
                     depth++;
@@ -546,9 +546,9 @@ namespace Newtonsoft.Json
                 case JsonToken.Integer:
                     ValidationUtils.ArgumentNotNull(value, nameof(value));
 #if HAVE_BIG_INTEGER
-                    if (value is BigInteger)
+                    if (value is BigInteger integer)
                     {
-                        WriteValue((BigInteger)value);
+                        WriteValue(integer);
                     }
                     else
 #endif
@@ -558,9 +558,9 @@ namespace Newtonsoft.Json
                     break;
                 case JsonToken.Float:
                     ValidationUtils.ArgumentNotNull(value, nameof(value));
-                    if (value is decimal)
+                    if (value is decimal d)
                     {
-                        WriteValue((decimal)value);
+                        WriteValue(d);
                     }
                     else if (value is double)
                     {
@@ -601,9 +601,9 @@ namespace Newtonsoft.Json
                 case JsonToken.Date:
                     ValidationUtils.ArgumentNotNull(value, nameof(value));
 #if HAVE_DATE_TIME_OFFSET
-                    if (value is DateTimeOffset)
+                    if (value is DateTimeOffset dt)
                     {
-                        WriteValue((DateTimeOffset)value);
+                        WriteValue(dt);
                     }
                     else
 #endif
@@ -616,9 +616,9 @@ namespace Newtonsoft.Json
                     break;
                 case JsonToken.Bytes:
                     ValidationUtils.ArgumentNotNull(value, nameof(value));
-                    if (value is Guid)
+                    if (value is Guid guid)
                     {
-                        WriteValue((Guid)value);
+                        WriteValue(guid);
                     }
                     else
                     {
@@ -1614,8 +1614,7 @@ namespace Newtonsoft.Json
 #endif
                 default:
 #if HAVE_ICONVERTIBLE
-                    IConvertible convertible = value as IConvertible;
-                    if (convertible != null)
+                    if (value is IConvertible convertible)
                     {
                         // the value is a non-standard IConvertible
                         // convert to the underlying value and retry
