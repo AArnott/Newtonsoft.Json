@@ -26,17 +26,17 @@
 namespace Newtonsoft.Json.Linq
 {
     /// <summary>
-    /// Specifies how JSON comments are handled when loading JSON.
+    /// Specifies how line information is handled when loading JSON.
     /// </summary>
-    public enum CommentHandling
+    public enum LineInfoHandling
     {
         /// <summary>
-        /// Ignore comments.
+        /// Ignore line information.
         /// </summary>
         Ignore = 0,
 
         /// <summary>
-        /// Load comments as a <see cref="JValue"/> with type <see cref="JTokenType.Comment"/>.
+        /// Load line information.
         /// </summary>
         Load = 1
     }
