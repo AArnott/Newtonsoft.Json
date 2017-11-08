@@ -1,4 +1,4 @@
-#region License
+﻿#region License
 // Copyright (c) 2007 James Newton-King
 //
 // Permission is hereby granted, free of charge, to any person
@@ -24,15 +24,18 @@
 #endregion
 
 using System;
-using System.Runtime.Serialization;
+using System.Collections.Generic;
 
 namespace Newtonsoft.Json.Tests.TestObjects
 {
-    public class ISerializableWithoutAttributeTestObject : ISerializable
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Include)]
+    public class MovieWithJsonObjectNullValueHandlingInclude
     {
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Classification { get; set; }
+        public string Studio { get; set; }
+        public DateTime? ReleaseDate { get; set; }
+        public List<string> ReleaseCountries { get; set; }
     }
 }
